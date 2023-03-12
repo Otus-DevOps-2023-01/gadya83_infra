@@ -1,12 +1,8 @@
 #!/bin/bash
-sudo apt update
-sudo apt install -y ruby-full ruby-bundler build-essential
-sudo apt update
-sudo apt install mongodb -y
-systemctl -q is-active mongodb && echo "$SERVICE mongodb was active"
-sudo systemctl start mongodb
-sudo systemctl enable mongodb
-sudo systemctl enable mongod
+chmod u+x ./install_ruby.sh
+./install_ruby.sh
+chmod u+x ./install_mongodb.sh
+./install_mongodb.sh
 if (git --version | grep 'command not found' )
 then
 sudo apt install git-all
